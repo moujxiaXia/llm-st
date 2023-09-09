@@ -4,7 +4,7 @@ from langchain.prompts import PromptTemplate
 
 st.title("🦜🔗 Langchain - Blog Outline Generator App")
 
-openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
+openai_api_key = st.secrets["OPENAI_API_KEY"] #st.sidebar.text_input("OpenAI API Key", type="password")
 
 
 def blog_outline(topic):
