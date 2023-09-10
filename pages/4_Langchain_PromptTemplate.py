@@ -5,7 +5,7 @@ from langchain.prompts import PromptTemplate
 st.title("🦜🔗 Langchain - Blog Outline Generator App")
 
 openai_api_key = st.secrets["OPENAI_API_KEY"] #st.sidebar.text_input("OpenAI API Key", type="password")
-
+pass_word = st.text_input("Password", key="pass_word", type="password")
 
 def blog_outline(topic):
     # Instantiate LLM model
@@ -23,7 +23,8 @@ def blog_outline(topic):
 with st.form("myform"):
     topic_text = st.text_input("Enter prompt:", "")
     submitted = st.form_submit_button("Submit")
-    if not openai_api_key:
-        st.info("Please add your OpenAI API key to continue.")
+    if not pass_word: #openai_api_key:
+        st.info("Please add your Password to continue.")
+        #st.info("Please add your OpenAI API key to continue.")
     elif submitted:
         blog_outline(topic_text)

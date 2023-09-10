@@ -3,6 +3,7 @@ import anthropic
 
 with st.sidebar:
     anthropic_api_key = st.text_input("Anthropic API Key", key="file_qa_api_key", type="password")
+    pass_word = st.text_input("Password", key="pass_word", type="password")
     "[View the source code](https://github.com/streamlit/llm-examples/blob/main/pages/1_File_Q%26A.py)"
     "[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/llm-examples?quickstart=1)"
 
@@ -14,8 +15,9 @@ question = st.text_input(
     disabled=not uploaded_file,
 )
 
-if uploaded_file and question and not anthropic_api_key:
-    st.info("Please add your Anthropic API key to continue.")
+if uploaded_file and question and not anthropic_api_key and not pass_word:
+    st.info("Please add your Password to continue."):
+    #st.info("Please add your Anthropic API key to continue.")
 
 if uploaded_file and question and anthropic_api_key:
     article = uploaded_file.read().decode()

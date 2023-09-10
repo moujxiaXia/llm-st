@@ -5,6 +5,7 @@ import trubrics
 
 with st.sidebar:
     openai_api_key = st.secrets["OPENAI_API_KEY"] #st.text_input("OpenAI API Key", key="feedback_api_key", type="password")
+    pass_word = st.text_input("Password", key="pass_word", type="password")
     "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
     "[View the source code](https://github.com/streamlit/llm-examples/blob/main/pages/5_Chat_with_user_feedback.py)"
     "[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/llm-examples?quickstart=1)"
@@ -31,8 +32,9 @@ if prompt := st.chat_input(placeholder="Tell me a joke about sharks"):
     messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
 
-    if not openai_api_key:
-        st.info("Please add your OpenAI API key to continue.")
+    if not pass_word: #openai_api_key:
+        st.info("Please add your Password to continue.")
+        #st.info("Please add your OpenAI API key to continue.")
         st.stop()
     else:
         openai.api_key = openai_api_key

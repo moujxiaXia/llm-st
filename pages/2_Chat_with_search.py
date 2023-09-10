@@ -7,6 +7,7 @@ from langchain.tools import DuckDuckGoSearchRun
 
 with st.sidebar:
     openai_api_key = st.secrets["OPENAI_API_KEY"] #st.text_input("OpenAI API Key", key="langchain_search_api_key_openai", type="password")
+    pass_word = st.text_input("Password", key="pass_word", type="password")
     "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
     "[View the source code](https://github.com/streamlit/llm-examples/blob/main/pages/2_Chat_with_search.py)"
     "[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/llm-examples?quickstart=1)"
@@ -30,8 +31,9 @@ if prompt := st.chat_input(placeholder="Who won the Women's U.S. Open in 2018?")
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
 
-    if not openai_api_key:
-        st.info("Please add your OpenAI API key to continue.")
+    if not pass_word:
+        st.info("Please add your Password to continue.")
+        #st.info("Please add your OpenAI API key to continue.")
         st.stop()
 
     llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True)
