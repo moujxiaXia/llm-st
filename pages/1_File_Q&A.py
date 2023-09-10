@@ -14,14 +14,8 @@ question = st.text_input(
     disabled=not uploaded_file,
 )
 
-<<<<<<< HEAD
-if uploaded_file and question and not anthropic_api_key and not pass_word:
-    st.info("Please add your Password to continue.")
-    #st.info("Please add your Anthropic API key to continue.")
-=======
 if uploaded_file and question and not anthropic_api_key:
     st.info("Please add your Anthropic API key to continue.")
->>>>>>> parent of 05db482 (password)
 
 if uploaded_file and question and anthropic_api_key:
     article = uploaded_file.read().decode()
