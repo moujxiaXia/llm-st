@@ -16,7 +16,7 @@ question = st.text_input(
 )
 
 if uploaded_file and question and not anthropic_api_key and not pass_word:
-    st.info("Please add your Password to continue."):
+    st.info("Please add your Password to continue.")
     #st.info("Please add your Anthropic API key to continue.")
 
 if uploaded_file and question and anthropic_api_key:
