@@ -5,7 +5,6 @@ st.title("🦜🔗 Langchain Quickstart App")
 
 with st.sidebar:
     openai_api_key = st.secrets["OPENAI_API_KEY"] #st.text_input("OpenAI API Key", type="password")
-    pass_word = st.text_input("Password", key="pass_word", type="password")
     "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
 
 
@@ -17,8 +16,7 @@ def generate_response(input_text):
 with st.form("my_form"):
     text = st.text_area("Enter text:", "What are 3 key advice for learning how to code?")
     submitted = st.form_submit_button("Submit")
-    if not pass_word: #openai_api_key:
-        st.info("Please add your Password to continue.")
-        #st.info("Please add your OpenAI API key to continue.")
+    if not openai_api_key:
+        st.info("Please add your OpenAI API key to continue.")
     elif submitted:
         generate_response(text)
